@@ -21,6 +21,11 @@ int _execve_r(struct _reent *reent, char *name, char **argv, char **env) {
     return -1;
 }
 
+int _fcntl_r(struct _reent *reent, int fd, int flag, int arg) {
+    reent->_errno = ENOSYS;
+    return -1;
+}
+
 int _fork_r(struct _reent *reent) {
     reent->_errno = ENOSYS;
     return -1;
